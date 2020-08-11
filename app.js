@@ -12,7 +12,6 @@ const apiToken = process.env.API_TOKEN;
 
 const { schemaComposer } = graphql;
 
-
 schemaComposer.Query.addFields({
     sports: {
         type: [SportTC],
