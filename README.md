@@ -31,3 +31,9 @@ sports(limit: Int): [Sport]
 ```
 sport(id: Int!): SportShow
 ```
+```
+venues(limit: Int, page: Int): [Venue]
+```
+```
+venue(id: Int!): VenueShow
+```
