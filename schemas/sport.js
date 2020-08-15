@@ -25,7 +25,6 @@ const StatusTC = graphql.schemaComposer.createObjectTC({
     }
 })
 
-
 const ResultTC = graphql.schemaComposer.createObjectTC({
     name: 'Results',
     fields: {
@@ -38,6 +37,7 @@ const ResultTC = graphql.schemaComposer.createObjectTC({
     }
 })
 
+graphql.schemaComposer.clone();
 
 const StatTC = graphql.schemaComposer.createObjectTC({
     name: 'Stat',
@@ -133,23 +133,12 @@ const VenueDetailTC = graphql.schemaComposer.createObjectTC({
     }
 })
 
-export const SportShowTC = graphql.schemaComposer.createObjectTC({
-    name: 'SportShow',
-    fields: {
-        id: 'Int!',
-        name: 'String!',
-        url: 'String!',
-        active: 'String!',
-        has_timer: 'String!',
-        template: 'String!',
-        incidents_positions: 'String!',
-        ut: 'Int!',
-        statuses: [StatusTC],
-        results: [ResultTC],
-        stats: StatsTC,
-        details: [DetailTC],
-        incidents: [IncidentTC],
-        standings_types: [StandingTypeTC],
-        venues_details: [VenueDetailTC]
-    },
+export const SportShowTC = SportTC.clone('SportShow').addFields({
+    statuses: [StatusTC],
+    results: [ResultTC],
+    stats: StatsTC,
+    details: [DetailTC],
+    incidents: [IncidentTC],
+    standings_types: [StandingTypeTC],
+    venues_details: [VenueDetailTC],
 });
