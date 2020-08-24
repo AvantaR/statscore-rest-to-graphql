@@ -13,17 +13,4 @@ const TranslationTC = graphql.schemaComposer.createObjectTC({
   },
 });
 
-const TranslationShowTC = graphql.schemaComposer.createObjectTC({
-  name: "TranslationShowTC",
-  fields: {
-    id: "Int!",
-    lang_code: "String!",
-    value: "String!",
-    resource_id: "Int!",
-    resource_type: "String!",
-    resource_field: "String!",
-    client_id: "Int!",
-  },
-});
-
-export { TranslationTC, TranslationShowTC };
+export { TranslationTC };

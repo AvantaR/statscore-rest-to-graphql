@@ -1,4 +1,4 @@
-import { TranslationTC, TranslationShowTC } from "../schemas/translation.js";
+import { TranslationTC } from "../schemas/translation.js";
 import translationRepository from "../repositories/translation.js";
 
 export default {
@@ -10,7 +10,7 @@ export default {
     },
   },
   translation: {
-    type: TranslationShowTC,
+    type: TranslationTC,
     args: { id: "Int!" },
     resolve: (_, { id }) => {
       return translationRepository.show(id);
