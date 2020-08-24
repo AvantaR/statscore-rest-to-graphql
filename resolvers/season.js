@@ -1,4 +1,4 @@
-import { SeasonTC, SeasonShowTC } from "../schemas/season.js";
+import { SeasonTC } from "../schemas/season.js";
 import seasonRepository from "../repositories/season.js";
 
 export default {
@@ -19,7 +19,7 @@ export default {
     },
   },
   season: {
-    type: SeasonShowTC,
+    type: SeasonTC,
     args: { id: "Int!" },
     resolve: (_, { id }) => {
       return seasonRepository.show(id);
