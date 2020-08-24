@@ -4,10 +4,7 @@ import seasonRepository from "../repositories/season.js";
 export default {
   seasons: {
     type: [SeasonTC],
-    args: {
-      limit: 'Int',
-      page: 'Int'
-    },
+    args: { limit: 'Int' },
     resolve: async (_, { limit }) => {
       const seasons = [];
       const results = await seasonRepository.index();
