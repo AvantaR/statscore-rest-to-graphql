@@ -4,10 +4,13 @@ import seasonRepository from "../repositories/season.js";
 export default {
   seasons: {
     type: [SeasonTC],
-    args: { limit: 'Int' },
-    resolve: async (_, { limit }) => {
+    args: {
+      limit: "Int",
+      page: "Int"
+    },
+    resolve: async (_, { limit, page }) => {
       const seasons = [];
-      const results = await seasonRepository.index();
+      const results = await seasonRepository.index(limit, page);
 
       results.competitions.forEach(competition => {
         competition.seasons.forEach(season => {
@@ -15,7 +18,7 @@ export default {
         });
       });
 
-      return seasons.slice(0, limit);
+      return seasons;
     },
   },
   season: {
