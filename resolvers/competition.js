@@ -4,9 +4,12 @@ import competitionRepository from "../repositories/competition.js";
 export default {
   competitions: {
     type: [CompetitionTC],
-    args: { limit: "Int" },
-    resolve: (_, { limit }) => {
-      return competitionRepository.index(limit);
+    args: {
+      limit: "Int",
+      page: "Int"
+    },
+    resolve: (_, { limit, page }) => {
+      return competitionRepository.index(limit, page);
     },
   },
   competition: {
